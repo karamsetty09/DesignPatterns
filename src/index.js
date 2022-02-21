@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import PrimaryButton, {SecondaryButton, TertiaryButton} from "./components/Buttons";
+import { GlobalStyle } from "./utils";
+
 const App = () => {
     return(
         <div>
-            <PrimaryButton>Hello World </PrimaryButton>
-            
-            <SecondaryButton>My color</SecondaryButton>
-             
-            <TertiaryButton>Tertiary</TertiaryButton>
+            <PrimaryButton  disabled >Hello World </PrimaryButton>
+            <SecondaryButton disabled >My color</SecondaryButton>
+            <TertiaryButton disabled >Tertiary</TertiaryButton>
+            <GlobalStyle></GlobalStyle>
         </div>
     )};
 
