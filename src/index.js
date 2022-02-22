@@ -7,8 +7,8 @@ const App = () => {
     return(
         <div>
             <PrimaryButton  disabled >Hello World </PrimaryButton>
-            <SecondaryButton disabled >My color</SecondaryButton>
-            <TertiaryButton disabled >Tertiary</TertiaryButton>
+            <SecondaryButton  disabled>My color</SecondaryButton>
+            <TertiaryButton  >Tertiary</TertiaryButton>
             <GlobalStyle></GlobalStyle>
         </div>
     )};

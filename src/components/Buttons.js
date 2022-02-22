@@ -1,69 +1,80 @@
 import styled from "styled-components";
 import { defaultTheme, typeScale } from "../utils";
+import { applyStyleModifiers } from "styled-components-modifiers";
+
+const BUTTON_MODIFIERS = {
+    small: () => `
+        font-size: ${typeScale.helperText};
+        padding: 8px;
+    `,
+    large: () => `
+        font-size: ${typeScale.h5};
+        padding: 16px 24px;
+    `,
+};
 
 const primaryBlue = "#046B65";
 const secondaryBlue = "#008080";
 const backgroundLime = "#C7EA46";
 
 const Button = styled.button`
-padding: 12px 24px;
-font-size: ${typeScale.paragraph};
-border-radius: 2px;
-min-width: 100px;
-cursor: pointer;
-font-family: "Roboto Mono", monospace;
-transition: background-color 0.2s linear, color 0.2s linear;
+  padding: 8px 12px;
+  font-size: ${typeScale.paragraph};
+  border-radius: 2px;
+  min-width: 100px;
+  cursor: pointer;
+  font-family: ${defaultTheme.primaryFont};
+  transition: background-color 0.2s linear, color 0.2s linear,
+    border 0.2s linear;
 
-&:hover {
+  &:hover {
     background-color: ${defaultTheme.primaryHoverColor};
     color: ${defaultTheme.textColorOnPrimary};
-}
+  }
 
-&:focus{
-    outline: 3px solid ${defaultTheme.primaryActiveColor}
+  &:focus {
+    outline: 3px solid ${defaultTheme.primaryHoverColor};
     outline-offset: 2px;
-}
-&:active{
+  }
+
+  &:active {
     background-color: ${defaultTheme.primaryActiveColor};
     border-color: ${defaultTheme.primaryActiveColor};
-    color: ${defaultTheme.textColorOnPrimary}
-}
+    color: ${defaultTheme.textColorOnPrimary};
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: none;
+    color: ${defaultTheme.disabled};
+    border: none;
+  }
 `;
 
 const PrimaryButton = styled(Button)`
-background-color: ${primaryBlue};
-border: none;
-color: white;
-&:disabled {
+  background-color: ${defaultTheme.primaryColor};
+  color: ${defaultTheme.textColorOnPrimary};
+  border: 2px solid transparent;
+
+  &:disabled {
     background-color: ${defaultTheme.disabled};
     color: ${defaultTheme.textOnDisabled};
-    border-color: ${defaultTheme.disabled}
-    cursor: not-allowed;
-}
+    border-color: ${defaultTheme.disabled};
+  }
 `;
 
 export const SecondaryButton = styled(Button)`
-background-color: none;
-border: 2px solid ${primaryBlue};
-color: ${primaryBlue};
-&:disabled {
-    background-color: none;
-    color: ${defaultTheme.disabled};
-    border-color: ${defaultTheme.disabled};
-    cursor: not-allowed;
-}
+  border: 2px solid ${defaultTheme.primaryColor};
+  color: ${defaultTheme.primaryColor};
+
+  &:disabled {
+    border: 2px solid ${defaultTheme.disabled};
+  }
 `;
 
 export const TertiaryButton = styled(Button)`
-background-color: none;
-border: none;
-color:  ${primaryBlue};
-
-&:disabled {
-    background-color: none;
-    color: ${defaultTheme.disabled};
-    cursor: not-allowed;
-}
+  border: 2px solid transparent;
+  color: ${defaultTheme.primaryColor};
 `;
 
 export default PrimaryButton; 
