@@ -4,14 +4,14 @@ import { applyStyleModifiers } from "styled-components-modifiers";
 
 const BUTTON_MODIFIERS = {
     small: () => `
-        font-size: ${typeScale.helperText};
-        padding: 8px;
+      font-size: ${typeScale.helperText};
+      padding: 8px;
     `,
     large: () => `
-        font-size: ${typeScale.h5};
-        padding: 16px 24px;
-    `,
-};
+      font-size: ${typeScale.header5};
+      padding: 16px 24px;
+    `
+  };
 
 const primaryBlue = "#046B65";
 const secondaryBlue = "#008080";
@@ -61,6 +61,7 @@ const PrimaryButton = styled(Button)`
     color: ${defaultTheme.textOnDisabled};
     border-color: ${defaultTheme.disabled};
   }
+  ${applyStyleModifiers(BUTTON_MODIFIERS)}
 `;
 
 export const SecondaryButton = styled(Button)`
@@ -68,13 +69,24 @@ export const SecondaryButton = styled(Button)`
   color: ${defaultTheme.primaryColor};
 
   &:disabled {
+    background: none;
     border: 2px solid ${defaultTheme.disabled};
+    color: ${defaultTheme.disabled};
+    cursor: not-allowed;
   }
+  ${applyStyleModifiers(BUTTON_MODIFIERS)}
 `;
 
 export const TertiaryButton = styled(Button)`
   border: 2px solid transparent;
   color: ${defaultTheme.primaryColor};
+  background: none;
+
+  &:disabled {
+    color: ${defaultTheme.disabled};
+    cursor: not-allowed;
+  }
+  ${applyStyleModifiers(BUTTON_MODIFIERS)}
 `;
 
 export default PrimaryButton; 
